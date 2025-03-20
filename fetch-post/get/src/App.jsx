@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Users } from "./components/Users";
 
 const App = () => {
   const [data, setData] = useState([]);
@@ -12,7 +13,7 @@ const App = () => {
         const json = await responce.json();
 
         setData(json);
-        console.log(json);
+        // console.log(json);
       } catch (error) {
         console.log(error);
       }
@@ -21,18 +22,11 @@ const App = () => {
   }, []);
 
   return (
-    <div>
+    <div className="flex flex-row flex-wrap gap-4 items-center justify-center min-h-screen">
       {data.map((users) => {
         return (
-          <div>
-            <p>ID:</p>
-            <span>{users.id} </span>
-            <p>Name:</p>
-            <span>{users.name} </span>
-            <p>Username:</p>
-            <span>{users.username}</span>
-            <p>Email:</p>
-            <span>{users.email} </span>
+          <div className="w-full max-w-md bg-white rounded-lg shadow-lg p-6 mb-4 hover:shadow-xl transition-shadow duration-300 ">
+            <Users users={users} key={users.id} />
           </div>
         );
       })}
