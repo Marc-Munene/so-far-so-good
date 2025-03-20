@@ -10,6 +10,9 @@ const App = () => {
         const responce = await fetch(
           "https://jsonplaceholder.typicode.com/users"
         );
+        
+        if (!responce.ok) throw new Error("Failed to fetch users!");
+
         const json = await responce.json();
 
         setData(json);
