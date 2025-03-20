@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Users } from "./components/Users";
 
 const App = () => {
   const [data, setData] = useState([]);
@@ -22,14 +21,33 @@ const App = () => {
   }, []);
 
   return (
-    <div className="flex flex-row flex-wrap gap-4 items-center justify-center min-h-screen">
-      {data.map((users) => {
-        return (
-          <div className="w-full max-w-md bg-white rounded-lg shadow-lg p-6 mb-4 hover:shadow-xl transition-shadow duration-300 ">
-            <Users users={users} key={users.id} />
+    <div className="flex flex-row flex-wrap items-center justify-center min-h-screen w-full gap-3">
+      {data.map((users) => (
+        <div
+          key={users.id}
+          className="flex flex-col items-center w-96 mt-5 shadow shadow-black p-4 "
+        >
+          <div className="flex">
+            <p>ID:</p>
+            <span>{users.id} </span>
           </div>
-        );
-      })}
+
+          <div className="flex">
+            <p>NAME:</p>
+            <span>{users.name} </span>
+          </div>
+
+          <div className="flex">
+            <p>USERNAME:</p>
+            <span>{users.username} </span>
+          </div>
+
+          <div className="flex">
+            <p>EMAIL:</p>
+            <span>{users.email} </span>
+          </div>
+        </div>
+      ))}
     </div>
   );
 };
