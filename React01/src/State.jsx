@@ -19,7 +19,7 @@ const State = () => {
     <div className="flex flex-col items-center justify-center min-h-screen">
       <UserForm setUsers={setUsers} />
 
-      <div className="w-full flex flex-col items-center shadow shadow-black p-4">
+      <div className="w-full flex flex-col items-center shadow shadow-lg p-4">
         {users.map((user) => (
           <UserDetails user={user} key={user.id} setUsers={setUsers} />
         ))}
