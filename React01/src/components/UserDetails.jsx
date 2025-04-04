@@ -11,7 +11,17 @@ const UserDetails = ({ user, setUsers }) => {
       <div>
         <button
           className="border-solid p-2 border-2 mr-2 bg-blue-700 text-white"
-          onClick={() => setIsEditing((currentState) => !currentState)}
+          onClick={() => {
+            setIsEditing(!isEditing);
+            console.log(isEditing);
+
+            //Alternatively
+            // <button
+            //   onClick={() => {
+            //     setIsEditing((currentState) => !currentState);
+            //   }}
+            // ></button>;
+          }}
         >
           Edit
         </button>
